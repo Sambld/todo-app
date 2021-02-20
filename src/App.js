@@ -1,4 +1,4 @@
-import './App.css';
+import './App.css';                  // component css
 import { useState } from 'react';   // import useStat function
 
 function App() {
@@ -7,18 +7,18 @@ function App() {
    const additem = () => {                                             
     let input = document.getElementById('inputitem'); 
     let text = input.value.trim();        // get task key number
-    if (text.length > 1) {
-      counter = counter + 1;
+    if (text.length > 0) {
+      counter = counter + 1; //  set new task key
       setcounter(counter)
-      let new_todolist = [...todolist, { task: text, isdone: false, key: counter }];
-      set_todolist(new_todolist);
+      let new_todolist = [...todolist, { task: text, isdone: false, key: counter }]; // add new task to task list
+      set_todolist(new_todolist); 
       input.value = '';
     }
   };
   const delitem = (e) => {
     let index = e.target.parentNode.parentNode.attributes.attrid.value;
     let new_todolist = todolist.filter((item) => {
-      return item.key != parseInt(index)
+      return item.key != parseInt(index)                      // delete task by key id
     })
     set_todolist(new_todolist);
   }
@@ -26,7 +26,7 @@ function App() {
     let index = e.target.parentNode.parentNode.attributes.attrid.value;
     let new_todolist = todolist.map((item) => {
       if (item.key == parseInt(index)) {
-        item.isdone = true
+        item.isdone = true                            // set task isdone value to true
         return item
       } else {
         return item
@@ -36,7 +36,7 @@ function App() {
   }
   return (
     <div className="App">
-      <p >A simple todo app </p>
+      <p >A simple todo app by group 11 </p>
       <input className='inputlist' type="text" id='inputitem' />  <button onClick={additem} className='btn'>Add</button>
       <div className='todo-table'>
         <table>
