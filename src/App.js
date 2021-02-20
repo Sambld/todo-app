@@ -48,7 +48,6 @@ function App() {
       <p >A simple todo app </p>
       <input className='inputlist' type="text" id='inputitem' />  <button onClick={additem} className='btn'>Add</button>
       <div className='todo-table'>
-        <button onClick={() => console.log(todolist)}>click</button>
         <table>
           <tbody>
             {
