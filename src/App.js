@@ -44,7 +44,7 @@ function App() {
             {
               todolist && todolist.map((item) => (
                 <tr key={Math.random()} attrid={item.key}>
-                  <td style={{ textDecoration: item.isdone ? "line-through" : "", backgroundColor: item.isdone ? '#42f542' : '' }} > <p>{item.task} {item.key}    </p></td>
+                  <td style={{ textDecoration: item.isdone ? "line-through" : "", backgroundColor: item.isdone ? '#42f542' : '' }} > <p>{item.task}    </p></td>
                   <td><button onClick={(e) => { complete_item(e) }} className='cmpbtn'> ✓</button></td>
                   <td><button onClick={(e) => { delitem(e) }} className='delbtn'> ✕</button></td>
                 </tr>
