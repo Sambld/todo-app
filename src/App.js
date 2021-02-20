@@ -36,8 +36,8 @@ function App() {
   }
   return (
     <div className="App">
-      <p >A simple todo app by group 11 </p>
-      <input className='inputlist' type="text" id='inputitem' />  <button onClick={additem} className='btn'>Add</button>
+      <p className='label' >A simple todo app by group 11 </p>
+      <input className='inputlist' type="text" id='inputitem' />  <button onClick={additem} className='btn'>Add task</button>
       <div className='todo-table'>
         <table>
           <tbody>
@@ -45,8 +45,8 @@ function App() {
               todolist && todolist.map((item) => (
                 <tr key={Math.random()} attrid={item.key}>
                   <td style={{ textDecoration: item.isdone ? "line-through" : "", backgroundColor: item.isdone ? '#42f542' : '' }} > <p>{item.task}    </p></td>
-                  <td><button onClick={(e) => { complete_item(e) }} className='cmpbtn'> ✓</button></td>
-                  <td><button onClick={(e) => { delitem(e) }} className='delbtn'> ✕</button></td>
+                  <td className='td'><button onClick={(e) => { complete_item(e) }} className='cmpbtn'> ✓</button></td>
+                  <td className='td'><button onClick={(e) => { delitem(e) }} className='delbtn'> ✕</button></td>
                 </tr>
               ))
             }
