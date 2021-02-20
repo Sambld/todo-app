@@ -2,34 +2,26 @@ import './App.css';
 import { useState } from 'react';   // import useStat function
 
 function App() {
-  let [todolist, set_todolist] = useState([]);
-  let [counter, setcounter] = useState(0);
-  // create a reactive array
-  const additem = () => {
-    let input = document.getElementById('inputitem');
-    let text = input.value.trim()
+  let [todolist, set_todolist] = useState([]); // create a reactive array that containe our main todo tasks
+  let [counter, setcounter] = useState(0); // create a counter for tasks
+   const additem = () => {                                             
+    let input = document.getElementById('inputitem'); 
+    let text = input.value.trim();        // get task key number
     if (text.length > 1) {
-
       counter = counter + 1;
       setcounter(counter)
-      console.log(counter);
       let new_todolist = [...todolist, { task: text, isdone: false, key: counter }];
       set_todolist(new_todolist);
-      console.log(todolist);
       input.value = '';
     }
-
   };
   const delitem = (e) => {
     let index = e.target.parentNode.parentNode.attributes.attrid.value;
     let new_todolist = todolist.filter((item) => {
-      console.log(index, item.key);
       return item.key != parseInt(index)
     })
     set_todolist(new_todolist);
-
   }
-
   const complete_item = (e) => {
     let index = e.target.parentNode.parentNode.attributes.attrid.value;
     let new_todolist = todolist.map((item) => {
@@ -41,7 +33,6 @@ function App() {
       }
     })
     set_todolist(new_todolist)
-
   }
   return (
     <div className="App">
@@ -51,7 +42,6 @@ function App() {
         <table>
           <tbody>
             {
-
               todolist && todolist.map((item) => (
                 <tr key={Math.random()} attrid={item.key}>
                   <td style={{ textDecoration: item.isdone ? "line-through" : "", backgroundColor: item.isdone ? '#42f542' : '' }} > <p>{item.task} {item.key}    </p></td>
@@ -61,14 +51,9 @@ function App() {
               ))
             }
           </tbody>
-
-
-
-
         </table>
       </div>
     </div>
   );
 }
-
 export default App;
